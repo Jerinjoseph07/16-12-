@@ -3,6 +3,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import EditIcon from '@mui/icons-material/Edit';
 import Studentedit from './Studentedit';
+import { Buffer } from "buffer";
 
 const Studentdetails = () => {
   var[selected,setSelected]=useState()
@@ -46,6 +47,7 @@ const Studentdetails = () => {
               <TableCell>{row.Name}</TableCell>
               <TableCell>{row.Age}</TableCell>
               <TableCell>{row.Course}</TableCell>
+              <TableCell><img src={`data:image/jpeg;base64,${Buffer.from(row.image1.data).toString('base64')}`} width="50" height="50" alt="no image"/></TableCell>
               <TableCell><EditIcon onClick={()=>updateValue(row)}></EditIcon></TableCell>
             </TableRow>
           
